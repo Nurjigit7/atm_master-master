@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class AccountServiceImpl implements AccountService {
 
+
     private final AccountDao accountDao = new AccountDao();
     private final Random random = new Random();
     private final Scanner scanner = new Scanner(System.in);
@@ -132,9 +133,9 @@ public class AccountServiceImpl implements AccountService {
             UserAccount user = accountDao.getUserAccounts().get(i);
 
             if (user.getCardNumber().equals(friendCardNumber)) {
-               friendCardNumber  =String.valueOf(user);
-               user.setBalance(amount);
-               System.out.println("Данный друга : " + user);
+                friendCardNumber = String.valueOf(user);
+                user.setBalance(amount);
+                System.out.println("Данный друга : " + user);
             }
         }
         for (int j = 0; j < accountDao.getUserAccounts().size(); j++) {
@@ -162,9 +163,9 @@ public class AccountServiceImpl implements AccountService {
         int[] denominations = {1000, 500, 200, 100, 50};
         int choice = amount;
         for (int denomination : denominations) {
-            int counter = amount /denomination;
+            int counter = amount / denomination;
             if (counter > 0) {
-                System.out.println(denomination + " -> " + counter+"купюра");
+                System.out.println(denomination + " -> " + counter + "купюра");
                 choice %= denomination;
             }
         }
@@ -172,20 +173,20 @@ public class AccountServiceImpl implements AccountService {
             System.out.println("Монетками -> 10p" + choice * 100 + " -> штук");
         }
         System.out.println("Выберите варианты обналички :");
-        int number=scanner.nextInt();
-        switch (number){
-            case 1-> System.out.println("1000->  одна купюра cнять ");
-            case 2-> System.out.println("500 -> два  купюра cнять ");
-            case 3-> System.out.println("200 ->  5 купюра cнять ");
-            case 4-> System.out.println("100 -> 10 купюра cнять ");
-            case 5-> System.out.println("50  -> 20  купюра cнять ");
-            case 6-> System.out.println(" монетами 10р -> "+choice* 100+" штук");
+        int number = scanner.nextInt();
+        switch (number) {
+            case 1 -> System.out.println("1000->  одна купюра cнять ");
+            case 2 -> System.out.println("500 -> два  купюра cнять ");
+            case 3 -> System.out.println("200 ->  5 купюра cнять ");
+            case 4 -> System.out.println("100 -> 10 купюра cнять ");
+            case 5 -> System.out.println("50  -> 20  купюра cнять ");
+            case 6 -> System.out.println(" монетами 10р -> " + choice * 100 + " штук");
             default -> System.out.println("таких вариантов обналички нету ");
         }
-        for (UserAccount userAccount: accountDao.getUserAccounts()){
-            System.out.println("Сумма "+(amount-choice)+"успешно  списана со счета ");
-            userAccount.setBalance(userAccount.getBalance()-amount);
-            System.out.println("Ваш текущий "+userAccount.getBalance());
+        for (UserAccount userAccount : accountDao.getUserAccounts()) {
+            System.out.println("Сумма " + (amount - choice) + "успешно  списана со счета ");
+            userAccount.setBalance(userAccount.getBalance() - amount);
+            System.out.println("Ваш текущий " + userAccount.getBalance());
             break;
         }
     }

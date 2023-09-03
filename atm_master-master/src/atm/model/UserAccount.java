@@ -1,5 +1,10 @@
 package atm.model;
 
+import atm.Color;
+import atm.service.impl.AccountServiceImpl;
+
+import java.awt.*;
+
 public class UserAccount {
     private String name;
     private String lastName;
@@ -60,11 +65,10 @@ public class UserAccount {
 
     @Override
     public String toString() {
-        return"[UserAccount : "+
-                "  name : "+ name +
-                "  lastName : "+ lastName +
-                "  cardNumber : " + cardNumber +
-                "  pinCode : "+pinCode +
-                "  balance : "+ balance + "]";
+        return Color.ANSI_CYAN + "[UserAccount : " + "  name : " + Color.ANSI_RESET + name +
+                Color.ANSI_CYAN + "  lastName : " + Color.ANSI_RESET + lastName +
+                Color.ANSI_CYAN + "  cardNumber : " + Color.ANSI_RESET + cardNumber +
+                Color.ANSI_CYAN + "  pinCode : " + Color.ANSI_RESET + pinCode +
+                Color.ANSI_CYAN + "  balance : " + Color.ANSI_RESET + balance + "]";
     }
 }
