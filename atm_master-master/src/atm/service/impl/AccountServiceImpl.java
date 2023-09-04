@@ -166,12 +166,12 @@ public class AccountServiceImpl implements AccountService {
         System.out.println("Выберите варианты обналички :");
         int number = scanner.nextInt();
         switch (number) {
-            case 1 -> System.out.println("1000->  одна купюра cнять ");
-            case 2 -> System.out.println("500 -> два  купюра cнять ");
-            case 3 -> System.out.println("200 ->  5 купюра cнять ");
-            case 4 -> System.out.println("100 -> 10 купюра cнять ");
-            case 5 -> System.out.println("50  -> 20  купюра cнять ");
-            case 6 -> System.out.println(" монетами 10р -> " + choice * 100 + " штук");
+            case 1 -> System.out.println("1) 1000->  одна купюра cнять ");
+            case 2 -> System.out.println("2) 500 -> два  купюра cнять ");
+            case 3 -> System.out.println("3) 200 ->  5 купюра cнять ");
+            case 4 -> System.out.println("4) 100 -> 10 купюра cнять ");
+            case 5 -> System.out.println("5) 50  -> 20  купюра cнять ");
+            case 6 -> System.out.println("6) монетами 10р -> " + choice * 100 + " штук");
             default -> System.out.println("таких вариантов обналички нету ");
         }
         for (UserAccount userAccount : accountDao.getUserAccounts()) {
