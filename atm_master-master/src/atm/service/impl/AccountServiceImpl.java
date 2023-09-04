@@ -42,9 +42,6 @@ public class AccountServiceImpl implements AccountService {
                             -> new RuntimeException("Not found User"));
             accountDao.getUserAccounts().add(user);
             int choice = 0;
-//            for (int i = 0; i < accountDao.getUserAccounts().size(); i++) {
-//                UserAccount user = accountDao.getUserAccounts().get(i);
-//                if (user.getName().equalsIgnoreCase(name) && user.getLastName().equalsIgnoreCase(lastName)) {
             System.out.println("select services !!");
             String word;
             System.out.print(Services.BALANCE + " Для пополнения баланса нажмите на [1] "
@@ -142,13 +139,7 @@ public class AccountServiceImpl implements AccountService {
             UserAccount user = accountDao.getUserAccounts().get(j);
             if (user.getCardNumber().equals(cardNumber) && user.getPinCode().equals(pinCode)) {
                 user.setBalance(user.getBalance() - amount);
-//                accountDao.getUserAccounts().add(user);
-
-//                user.setBalance(user.getBalance() - amount);
-//                accountDao.getUserAccounts().add(user);
-
                 System.out.println("Ваше данных : " + user);
-
                 break;
 
             } else {
